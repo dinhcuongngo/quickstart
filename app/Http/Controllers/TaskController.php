@@ -17,6 +17,8 @@ class TaskController extends Controller
         //
         $tasks = Task::all();
 
+        //dd($tasks);
+
         return view('/tasks',['tasks'=>$tasks]);
     }
 
@@ -50,6 +52,7 @@ class TaskController extends Controller
     public function show(Task $task)
     {
         //
+
     }
 
 
@@ -61,6 +64,10 @@ class TaskController extends Controller
 
     public function destroy(Task $task)
     {
-        //
+        //dd($task);
+
+        $task->delete();
+
+        return redirect('/tasks');
     }
 }

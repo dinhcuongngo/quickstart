@@ -24,4 +24,7 @@ Route::get('/tasks', 'TaskController@index');
 Route::post('/tasks','TaskController@store');
 
 //deleting a task
-Route::delete('/tasks/{id}', 'TaskController@delete');
+Route::delete('/tasks/{task}', 'TaskController@destroy');
+
+//updating a task
+Route::get('/tasks/{id}', 'TaskController@show');

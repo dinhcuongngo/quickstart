@@ -14,7 +14,7 @@
 						<label>Task</label>
 					</div>
 					<div>
-						<input type="text" name="name">
+						<input type="text" name="name" value="">
 					</div>
 					<div>
 						<button type="submit" name="btnAdd">
@@ -50,10 +50,11 @@
 								<span>{{ $task->name }}</span>
 							</div>
 							<div class="block__content_list_right">
+								<a href="/tasks/{{ $task->id }}" class="btn btnUpdate">Update</a>
 								<form action="/tasks/{{ $task->id }}" method="POST">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<input type="hidden" name="_method" value="DELETE">
-									<button type="submit" class="btnDel">Delete</button>
+									<button type="submit" class="btn btnDel">Delete</button>
 								</form>
 							</div>
 						</div>

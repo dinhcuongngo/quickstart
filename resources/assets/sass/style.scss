@@ -38,6 +38,23 @@ a{
 		color: #cc3300;
 	} 
 }
+.btn{
+	padding: 7px  15px;
+	margin: 0 10px;
+	display: block;
+	float: left;
+	color: #ffffff;
+	@include border_radius(3px);
+}
+.btnUpdate{
+	background-color: #0099ff;
+	border: 1px solid #006bb3;
+	
+}
+.btnDel{
+	border: 1px solid #DD262F;
+	background-color: #E14347;
+}
 /*================HEADER===================*/
 header{
 	@extend %define;
@@ -129,13 +146,6 @@ section.body{
 				}
 				&_right{
 					float: right;
-					.btnDel{
-						padding: 7px  15px;
-						border: 1px solid #DD262F;
-						background-color: #E14347;
-						@include border_radius(3px);
-						color: #ffffff;
-					}
 				}
 			}
 		}
