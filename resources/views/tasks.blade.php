@@ -14,15 +14,28 @@
 						<label>Task</label>
 					</div>
 					<div>
-						<input type="text" name="task">
+						<input type="text" name="name">
 					</div>
 					<div>
 						<button type="submit" name="btnAdd">
 							<i class="fas fa-plus"></i> Add new task
 						</button>
 					</div>
+					@if(Session::has('success'))
+					<div>
+						<p class="msg-success">							
+							{{ Session::get('success') }}
+					        @php
+					        Session::forget('success');
+					        @endphp
+						</p>
+					</div>
+					@endif
+					<div>
+						@include('common.error')
+					</div>
 				</form>
-			</div>
+			</div>						
 		</div>
 		<div class="block">
 			<div class="block__title">
@@ -30,30 +43,22 @@
 			</div>
 			<div class="block__content">
 				<p class="block__content_top">Task</p>
-				<div class="block__content_list clearfix">
-					<div class="block__content_list_left">
-						<span>Taking the project's requirements</span>
-					</div>
-					<div class="block__content_list_right">
-						<form action="/tasks/" method="POST">
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-							<input type="hidden" name="method" value="DELETE">
-							<button type="submit" class="btnDel">Delete</button>
-						</form>
-					</div>
-				</div>
-				<div class="block__content_list clearfix">
-					<div class="block__content_list_left">
-						<span>Taking the project's requirements</span>
-					</div>
-					<div class="block__content_list_right">
-						<form action="/tasks/" method="POST">
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-							<input type="hidden" name="method" value="DELETE">
-							<button type="submit" class="btnDel">Delete</button>
-						</form>
-					</div>
-				</div>
+				@if(isset($tasks))
+					@foreach($tasks as $task)
+						<div class="block__content_list clearfix">
+							<div class="block__content_list_left">
+								<span>{{ $task->name }}</span>
+							</div>
+							<div class="block__content_list_right">
+								<form action="/tasks/{{ $task->id }}" method="POST">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<input type="hidden" name="_method" value="DELETE">
+									<button type="submit" class="btnDel">Delete</button>
+								</form>
+							</div>
+						</div>
+					@endforeach
+				@endif
 			</div>
 		</div>
 

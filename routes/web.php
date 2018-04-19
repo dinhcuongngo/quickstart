@@ -16,7 +16,7 @@
 });*/
 // list all tasks
 Route::get('/',function(){
-	return view('tasks');
+	return view('home');
 });
 Route::get('/tasks', 'TaskController@index');
 

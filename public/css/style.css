@@ -26,6 +26,12 @@ header, section.body, section.body .block__content_list, footer {
   width: 80%;
   margin: 0 auto; }
 
+.msg-success {
+  color: #009933; }
+
+.msg-errors ul > li {
+  color: #cc3300; }
+
 /*================HEADER===================*/
 header {
   background-color: #f4645f;

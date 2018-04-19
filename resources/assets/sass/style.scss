@@ -30,7 +30,14 @@ a{
 	width: 80%;
 	margin: 0 auto;
 }
-
+.msg-success{
+	color: #009933;
+}
+.msg-errors{
+	ul > li {
+		color: #cc3300;
+	} 
+}
 /*================HEADER===================*/
 header{
 	@extend %define;
